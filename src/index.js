@@ -1,3 +1,4 @@
+import "./style.css";
 //homepage module
 (function () {
   //page nodes
@@ -53,3 +54,5 @@
   content.appendChild(p4);
   content.appendChild(p5);
 })();
+
+function unmountPage() {}
