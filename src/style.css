@@ -40,6 +40,9 @@ body {
   padding: 10 20px;
   margin: 10px;
 }
+.navbar ul li:hover {
+  cursor: pointer;
+}
 /*content*/
 .content {
   border-radius: 15px;
@@ -52,4 +55,17 @@ body {
   flex-direction: column;
   align-items: center;
   font-size: 1.3rem;
+}
+.current {
+  text-decoration: underline;
+}
+/*menu*/
+.menu img {
+  width: 50px;
+  height: 50px;
+}
+.menu-dish {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
 }
