@@ -31,7 +31,9 @@ let HomePage = (function () {
   navMenu.textContent = "Menu";
 
   let navContact = document.createElement("li");
-  navContact.addEventListener("click", () => console.log("contact"));
+  navContact.addEventListener("click", () =>
+    loadNewPage(pageContent, ContactPage.loadContactPage)
+  );
   navContact.textContent = "Contact";
 
   //content
@@ -107,7 +109,9 @@ let Menu = (function () {
   navMenu.classList.add("current");
 
   let navContact = document.createElement("li");
-  navContact.addEventListener("click", () => console.log("contact"));
+  navContact.addEventListener("click", () =>
+    loadNewPage(pageContent, ContactPage.loadContactPage)
+  );
   navContact.textContent = "Contact";
 
   //content
@@ -142,6 +146,66 @@ let Menu = (function () {
       pageContainer.appendChild(content);
       //
       content.appendChild(menu);
+    },
+  };
+})();
+
+let ContactPage = (function () {
+  //page nodes
+  let pageContent = document.querySelector("#content");
+  let pageContainer = document.createElement("div");
+  pageContainer.classList.add("container");
+  //header
+  let header = document.createElement("header");
+  header.classList.add("header");
+
+  let logo = document.createElement("div");
+  logo.classList.add("logo");
+  logo.textContent = "Wanmin Restaurant";
+
+  let navbar = document.createElement("nav");
+  navbar.classList.add("navbar");
+
+  let navList = document.createElement("ul");
+
+  let navHome = document.createElement("li");
+  navHome.textContent = "Home";
+
+  navHome.addEventListener("click", () =>
+    loadNewPage(pageContent, HomePage.loadHomePage)
+  );
+
+  let navMenu = document.createElement("li");
+  navMenu.addEventListener("click", () =>
+    loadNewPage(pageContent, Menu.loadMenuPage)
+  );
+  navMenu.textContent = "Menu";
+
+  let navContact = document.createElement("li");
+  navContact.classList.add("current");
+  navContact.textContent = "Contact";
+
+  //content
+  let content = document.createElement("div");
+  content.classList.add("content");
+
+  let p1 = document.createElement("p");
+  p1.textContent = "Visit us at Li Yue ";
+
+  return {
+    loadContactPage: function () {
+      ///append to page
+      pageContent.appendChild(pageContainer);
+      pageContainer.appendChild(header);
+      navList.appendChild(navHome);
+      navList.appendChild(navMenu);
+      navList.appendChild(navContact);
+      navbar.appendChild(navList);
+      header.appendChild(logo);
+      header.appendChild(navbar);
+      pageContainer.appendChild(content);
+      //
+      content.appendChild(p1);
     },
   };
 })();
